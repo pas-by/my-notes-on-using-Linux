@@ -1,0 +1,8 @@
+$ su
+xxxxx <--- password
+
+$ /sbin/usermod -aG sudo $user
+
+reboot the machine.
+
+

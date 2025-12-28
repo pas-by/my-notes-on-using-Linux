@@ -1,0 +1,12 @@
+Checking the Current Time Zone
+
+$ timedatectl
+
+To view all available time zones,
+
+$ timedatectl list-timezones
+
+Changing the Time Zone
+
+$ sudo timedatectl set-timezone <your_time_zone>
+

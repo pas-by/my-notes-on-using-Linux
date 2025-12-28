@@ -1,0 +1,22 @@
+Randomize your MAC address using NetworkManager
+
+To apply randomized MAC-addresses by default to all WiFi connections, 
+create the following file /etc/NetworkManager/conf.d/00-macrandomize.conf :
+
+[device]
+wifi.scan-rand-mac-address=yes
+
+[connection]
+wifi.cloned-mac-address=stable
+ethernet.cloned-mac-address=stable
+connection.stable-id=${CONNECTION}/${BOOT}
+
+
+
+Afterward, restart NetworkManager:
+
+$sudo systemctl restart NetworkManager
+
+Set cloned-mac-address to stable to generate the same hashed MAC every time a NetworkManager connection activates. 
+To get a truly random MAC with every activation, use random instead.
+

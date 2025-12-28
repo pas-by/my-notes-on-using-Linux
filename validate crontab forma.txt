@@ -1,0 +1,7 @@
+cron checks /etc/crontab every minute, 
+and logs a message indicating that it has reloaded it, 
+or that it found an error.
+
+So after editing, run this:
+
+sleep 60;sudo grep crontab /var/log/syslog | tail

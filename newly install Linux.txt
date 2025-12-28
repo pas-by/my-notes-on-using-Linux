@@ -1,0 +1,74 @@
+﻿# 開啟firewall
+sudo ufw enable
+
+sudo apt-get update
+sudo apt-get upgrade
+
+#  install ntpdate
+sudo apt install util-linux-extra
+
+# install joe edit
+sudo apt-get install joe
+
+# install net-tools (ifconfig)
+sudo apt install net-tools
+
+# install Apache
+sudo apt-get update
+sudo apt-get install apache2
+
+# setup firewall
+sudo ufw app list
+sudo ufw allow "Apache Full"
+
+# install PHP
+sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql
+
+# install gd for php
+php --version
+
+# thou will see something like 'v7.x', so
+sudo apt-get install php7.x-gd
+
+# edit the following file. 
+# To move the PHP index file to the first position after the DirectoryIndex.
+sudo nano /etc/apache2/mods-enabled/dir.conf
+
+# restart the Apache web server
+sudo systemctl restart apache2
+
+# check on the status of the apache2
+sudo systemctl status apache2
+
+#############################################
+
+# install samba server
+sudo apt install samba
+
+# edit /etc/samba/smb.conf file to insert "netbios name = ????"
+sudo joe /etc/samba/smb.conf
+
+# restart samba server
+sudo systemctl restart smbd.service nmbd.service
+
+# setup the firewall
+sudo ufw allow "Samba"
+
+# install OpenSSH client applications
+sudo apt install openssh-client
+
+# install the OpenSSH server application
+sudo apt install openssh-server
+
+# setup the firewall
+sudo ufw allow "OpenSSH"
+
+# edit setting
+sudo joe /etc/ssh/sshd_config
+
+# restart ssh server
+sudo systemctl restart sshd.service
+
+#  to protect from brute force attacks against SSH
+sudo apt install sshguard
+

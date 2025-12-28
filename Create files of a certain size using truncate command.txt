@@ -1,0 +1,6 @@
+To create a specific size file, for example 5 MB, using truncate command, run:
+
+$ truncate -s 5M ostechnix.txt
+
+The above command will create a file called ostechnix.txt with size exactly 5MB.
+

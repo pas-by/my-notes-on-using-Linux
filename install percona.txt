@@ -1,0 +1,46 @@
+# to get the linux mint code name
+lsb_release -sc
+
+# get the corresponding code name of Ubuntu from internet
+# e.g https://en.wikipedia.org/wiki/Linux_Mint_version_history
+# in this example, our Linux mint code name is Tessa,
+# and the corresponding code name of Ubuntu is Bionic.
+
+For all users of the system via the /etc/wgetrc or for the user only with the ~/.wgetrc file:
+
+use_proxy=yes
+http_proxy=127.0.0.1:8080
+https_proxy=127.0.0.1:8080
+
+#  get Percona server config file
+wget https://repo.percona.com/apt/percona-release_latest.bionic_all.deb
+
+#  Install the downloaded package with dpkg
+sudo dpkg -i percona-release_latest.bionic_all.deb
+
+#  Remember to update the local cache
+sudo apt-get update
+
+#  After that you can install the server package
+sudo apt-get install percona-server-server-5.7
+
+#  configure firewall to allow mysql
+sudo ufw allow 3306
+
+#  access mysql server
+sudo mysql -uroot -p
+
+#  create a root user
+CREATE USER 'root'@'%' IDENTIFIED BY '12345678';
+
+#  make he / she a root user 
+GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION;
+
+#  save the changes by issuing the FLUSH PRIVILEGES command
+FLUSH PRIVILEGES;
+
+#  exit mysql prompt
+quit
+
+
+

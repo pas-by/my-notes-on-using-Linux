@@ -1,0 +1,8 @@
+Screen Resolution Problem with Ubuntu 14.04 and VirtualBox
+
+You basically need the Guest additions, log into the VM to install the following packages:
+
+sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+
+Finally restart the VM to complete the installation.
+

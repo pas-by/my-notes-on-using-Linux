@@ -1,0 +1,10 @@
+How to tell which disk is sda and which is sdb disk?
+
+You can get the make and model of each physical block device with lsblk:
+
+$ lsblk -do +VENDOR,MODEL,SERIAL
+NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT VENDOR   MODEL            SERIAL
+sda    8:0    0   1.8T  0 disk            ATA      WDC WD20EARS-00M WD-WCAZA571XXXX
+sdf    8:80   0 465.1G  0 disk            WD       My Passport 070A WD-WXF1A30YXXXX
+sr0   11:0    1  1024M  0 rom             HL-DT-ST DVDRAM GH22LS40  6FA3D3AFXXXX
+sr1   11:1    1   668M  0 rom             WD       Virtual CD 070A  57584631413330593830XXXX

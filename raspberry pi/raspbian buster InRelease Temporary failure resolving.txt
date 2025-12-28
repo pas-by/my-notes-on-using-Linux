@@ -1,0 +1,8 @@
+raspbian buster InRelease Temporary failure resolving
+
+Try this in a command line shell or terminal window.
+sudo -s
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+chmod 644 /etc/resolv.conf
+exit
+ping google.

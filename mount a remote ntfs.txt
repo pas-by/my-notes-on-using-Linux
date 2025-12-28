@@ -1,0 +1,11 @@
+# mount a remote ntfs
+#
+#  create a directory to mount on
+sudo mkdir /mnt/lss_nas01
+#
+#  change permission of ownership
+sudo chmod 777 /mnt/lss_nas01
+#
+#  Mount a Remote NTFS Share
+sudo mount -t cifs //192.168.1.101 -o username=con_lsy,password=12345678 /mnt/lss_nas01
+#

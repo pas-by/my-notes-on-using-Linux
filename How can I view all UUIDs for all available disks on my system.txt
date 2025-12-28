@@ -1,0 +1,5 @@
+How can I view all UUIDs for all available disks on my system?
+
+You can see all the outputs that can be added to the -o (--output) with
+$ lsblk -o +uuid,name
+

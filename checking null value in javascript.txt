@@ -1,0 +1,15 @@
+javascript - checking null value
+
+Just by using if
+
+if( value ) {
+}
+
+will evaluate to true if value is not:
+
+    null
+    undefined
+    NaN
+    empty string ("")
+    false
+    0

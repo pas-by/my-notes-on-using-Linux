@@ -1,0 +1,5 @@
+sudo apt-get -y install gcc make autoconf libc-dev pkg-config
+sudo apt-get -y install php7.2-dev
+sudo apt-get -y install libmcrypt-dev
+sudo apt install php-pear
+sudo pecl install mcrypt-1.0.1

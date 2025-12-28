@@ -1,0 +1,15 @@
+mount & unmount a luks encrypted device
+
+You should unmount the mapper and close the container.
+
+Example:
+
+sudo /sbin/cryptsetup luksOpen /dev/sdg1 backup
+sudo mount /dev/mapper/backup /media/extern/backup
+
+When done
+
+sudo umount /dev/mapper/backup
+sudo cryptsetup luksClose backup
+
+

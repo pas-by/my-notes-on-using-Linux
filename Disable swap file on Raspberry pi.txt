@@ -1,0 +1,7 @@
+Disable swap file on Raspberry pi
+
+$ sudo dphys-swapfile swapoff
+$ sudo dphys-swapfile uninstall
+
+$ sudo service dphys-swapfile stop
+$ sudo systemctl disable dphys-swapfile.service

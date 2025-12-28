@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y
+
+#  Configure Git to use a proxy
+#  git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig
+mkdir build
+cd build
+cmake ..
+make
+cd
+~/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u 83k41AVFZZaPrdEmk5WoYn9ZVwSM2zMREet3jsXxzfNUajp96zkuzdd3Mzd17jGobqDW7wSK5jHRGSdpxGbzBiemFDjPJTJ -p xxxxxxxxxx
+

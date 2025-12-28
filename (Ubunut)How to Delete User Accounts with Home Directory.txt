@@ -1,0 +1,8 @@
+you can use the killall command to kill those running processes as shown.
+
+# killall -9 -u tecmint
+
+Delete/Remove User Account and Files
+
+# deluser --remove-home tecmint      [On Debian and its derivatives]
+# userdel --remove tecmint           [On RedHat/CentOS based systems]

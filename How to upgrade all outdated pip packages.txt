@@ -1,0 +1,5 @@
+#  install pipdate
+sudo pip|pip3 install pipdate
+
+#  upgrade all outdated pip packages
+sudo -H pipdate|pipdate3

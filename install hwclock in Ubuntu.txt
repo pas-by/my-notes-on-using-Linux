@@ -1,0 +1,4 @@
+hwclock is not found in a fresh installed ubuntu 23.10.
+Users have to install util-linux-extra to have hwclock included.
+
+sudo apt install util-linux-extra

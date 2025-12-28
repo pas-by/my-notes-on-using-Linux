@@ -1,0 +1,18 @@
+安裝 smartmontools
+sudo apt install smartmontools
+
+查看該媒體是否支援 SMART 檢測。
+啟用 (Enabled)
+
+sudo smartctl -i /dev/sda
+
+停用 (Disabled)
+
+sudo smartctl -i /dev/sda
+
+若尚未啟用 SMART，可以使用 -s 參數開啟它。
+
+sudo smartctl -s on /dev/sda
+
+sudo smartctl -H /dev/sda
+

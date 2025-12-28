@@ -1,0 +1,8 @@
+Allow Samba through your Linux firewall with ufw
+
+sudo ufw allow Samba
+
+These 2 commands from terminal will achieve the same result:
+
+sudo ufw allow proto udp to any port 137,138 from 192.168.1.0/24
+sudo ufw allow proto tcp to any port 139,445 from 192.168.1.0/24

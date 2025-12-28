@@ -1,0 +1,13 @@
+You can list interfaces with: ls /sys/class/net
+
+edit the file /etc/network/interfaces with
+# sudo joe /etc/network/interfaces
+
+insert the following line for each interface: (note: eth0 is the name of the interface)
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+finally, reinitialize the network-configuration by
+# sudo systemctl restart networking

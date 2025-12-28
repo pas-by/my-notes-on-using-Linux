@@ -1,0 +1,28 @@
+Block SSH Attacks Using UFW
+
+If you have UFW installed and enabled on your Ubuntu / Debian system, modify the /etc/ufw/before.rules file.
+
+$ sudo vim /etc/ufw/before.rules
+
+Add the following lines just after the allow all on loopback section.
+
+# allow all on loopback
+-A ufw-before-input -i lo -j ACCEPT
+-A ufw-before-output -o lo -j ACCEPT
+
+# hand off control for sshd to sshguard
+:sshguard - [0:0]
+-A ufw-before-input -p tcp --dport 22 -j sshguard
+
+Save the file and restart UFW.
+
+$ sudo systemctl restart ufw
+
+Now attempt logging into the server from a different system with the wrong credentials and notice that you will be locked out for 120 seconds after the first failed login attempt.
+
+You can verify this by checking the auth.log log file.
+
+$ sudo tail -f  /var/log/auth.log
+
+After the next failed log attempt, the block time increases to 240 seconds, then 480 seconds, then 960 seconds, and so on.
+

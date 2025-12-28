@@ -1,0 +1,3 @@
+checking ssh success login :
+$ cat /var/log/auth.log | grep sshd | grep opened
+

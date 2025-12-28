@@ -1,0 +1,8 @@
+In order for VirtualBox to see your USB devices, your user must be in the vboxusers group.
+
+$ sudo gpasswd -a yourusername vboxusers
+
+Now log out and log back in so the changes can take effect. To check which groups your user account belongs to, run:
+
+$ groups yourusername
+

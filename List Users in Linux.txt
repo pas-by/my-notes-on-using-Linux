@@ -1,0 +1,21 @@
+To check the UID_MIN and UID_MIN values on your system, you can use the following command:
+
+~$ grep -E '^UID_MIN|^UID_MAX' /etc/login.defs
+
+UID_MIN          1000
+UID_MAX         60000
+
+From the output above, we can see that all normal users should have a UID between 1000 and 60000. Knowing the minimal and maximal value allow us to query a list of all normal users in our system.
+
+The command below will list all normal users in our Linux system:
+
+~$ getent passwd {1000..60000}
+
+Your system UID_MIN and UID_MIN values may be different so the more generic version of the command above would be:
+
+~$ eval getent passwd {$(awk '/^UID_MIN/ {print $2}' /etc/login.defs)..$(awk '/^UID_MAX/ {print $2}' /etc/login.defs)}
+
+If you want to print only the usernames just pipe the output to the cut command:
+
+~$ eval getent passwd {$(awk '/^UID_MIN/ {print $2}' /etc/login.defs)..$(awk '/^UID_MAX/ {print $2}' /etc/login.defs)} | cut -d: -f1
+

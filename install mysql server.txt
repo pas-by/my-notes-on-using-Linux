@@ -1,0 +1,42 @@
+#  install mysql server
+sudo apt install mysql-server
+
+#  configure firewall to allow mysql
+sudo ufw allow 3306
+
+#  access mysql server
+sudo mysql
+
+#  create a root user
+CREATE USER 'root'@'%' IDENTIFIED BY '12345678';
+#  ALTER USER 'root'@'%' REQUIRE SSL;
+
+#  make he / she a root user 
+GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION;
+
+#  save the changes by issuing the FLUSH PRIVILEGES command
+FLUSH PRIVILEGES;
+
+#  exit mysql prompt
+quit
+
+#  edit mysql config file
+sudo joe /etc/mysql/mysql.conf.d/mysqld.cnf
+
+#  change the bind-address = 0
+#  ctl-k x to save & exit
+
+#  restart the mysql server
+sudo systemctl restart mysql
+
+NOTE ON MySQL 8.X
+=================
+you can CREATE or ALTER your database user to use mysql_native_password with the command shown below
+
+CREATE USER 'nativeuser'@'localhost'IDENTIFIED WITH mysql_native_password BY 'password';
+
+you can modify your my.cnf file by adding the line shown below and restarting your MySQL service
+
+[mysqld]
+default-authentication-plugin=mysql_native_password
+

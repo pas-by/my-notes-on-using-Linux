@@ -1,0 +1,29 @@
+Encrypted swap partition on Debian/Ubuntu
+
+1. Install the cryptsetup package:
+
+    sudo apt install cryptsetup
+
+2. Add this line to /etc/crypttab:
+
+    sda2_crypt /dev/sda2 /dev/urandom cipher=aes-xts-plain64,size=256,swap,discard
+
+3. Set the swap partition to be this in /etc/fstab:
+
+    /dev/mapper/sda2_crypt none swap sw 0 0
+
+You will of course want to replace /dev/sda2 with the partition 
+that currently holds your unencrypted swap.
+
+4. Reset swaps described in /etc/fstab by following commands:
+
+    sudo swapoff -a; sudo swapon -a; swapon -s
+
+NOTE : Problem with cryptsetup; Ubuntu doesn’t boot as usual
+(cryptsetup: warning ??? : couldn't determine device type)
+
+the solution was here:
+sudo swapoff -a
+sudo update-initramfs -c -k all
+sudo swapon -a
+

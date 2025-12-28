@@ -1,0 +1,4 @@
+create a new user named vivek using the useradd command on Ubuntu:
+
+$ sudo useradd -s /bin/bash -d /home/vivek/ -m -G sudo vivek
+$ sudo passwd vivek

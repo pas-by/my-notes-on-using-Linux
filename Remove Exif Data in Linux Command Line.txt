@@ -1,0 +1,20 @@
+Remove Exif Data in Linux Command Line
+
+installation
+$ sudo apt install libimage-exiftool-perl
+
+To list all the details,
+$ exiftool <image.jpg>
+
+To remove metadata,
+$ exiftool -all= <image.jpg>
+
+if you want to remove the metadata of an image without creating a new copy
+$ exiftool -overwrite_original -all= <image.jpg>
+
+To remove metadata from an entire directory,
+$ exiftool -recurse -all= <path of directory>
+
+To remove exif data only,
+$ exiftool -EXIF= <image.jpg>
+

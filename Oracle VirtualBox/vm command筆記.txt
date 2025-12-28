@@ -1,0 +1,17 @@
+Lists all virtual machines currently registered with Oracle VM VirtualBox.
+
+$ VBoxManage list vms
+
+"lubuntu" {45883348-5ab8-41e0-93f2-fa806f0b391c}
+"Elementary OS 7.1" {0c195a02-5d3a-418f-9476-910891cd47e5}
+"python program" {7526d996-ca38-41ec-a09e-b12195c2b338}
+...
+
+Starts a virtual machine that is currently in the Powered Off or Saved states.
+(starts a VM without a window for remote display only. )
+
+$ VBoxManage startvm "python program" --type headless
+
+Waiting for VM "python program" to power on...
+VM "python program" has been successfully started.
+

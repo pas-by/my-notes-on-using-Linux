@@ -1,0 +1,1 @@
+git clone file://10.66.207.136/sso4/databasebackup/repository/jms_20
